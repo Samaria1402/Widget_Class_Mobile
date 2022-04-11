@@ -1,69 +1,57 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-         title: 'samaria_project',
-         theme: ThemeData(
-           primarySwatch: Colors.blue,
-         ),
-         home : MyHomePage(),
-         debugShowCheckedModeBanner : false,
-       );
-  }
-}
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: new AppBar(
-        title: Text('SAMARIA'),
-        backgroundColor: Colors.red,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Samaria'),
+        ),
+        body: ListView(
           children: [
-            //pengguna dasar
-            ElevatedButton(
-              onPressed: () {
-                print('ini selesai');
-              },
-              child: new Text('Belajar flutter.com'),
-            ),
-            ElevatedButton.icon(
-              label: Text(
-                'belajarflutter.com',
+            Container(
+              color: Colors.red,
+              height: 300,
+              width: 200,
+              child: Image(
+                fit: BoxFit.cover,
+                image: AssetImage("assets/images/bunga.jpg"), //nama gambar
               ),
-              icon: Icon(Icons.web),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.pink,
+            ),
+            Container(
+              color: Color.fromARGB(255, 33, 152, 243),
+              height: 300,
+              width: 200,
+            ),
+            Container(
+              color: Color.fromARGB(255, 248, 252, 252),
+              height: 300,
+              width: 200,
+            ),
+            Container(
+              height: 100,
+              width: 100,
+              child: Center(
+                child: ElevatedButton.icon(
+                    onPressed: () {},
+                    icon: Icon(Icons.web),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.green,
+                    ),
+                    label: Text('Belajar Flutter')),
               ),
-              onPressed: () {
-                print('Yang kedua');
-              },
-            ),
-
-            //ElevatedButton onPressed dan onLongPress
-            ElevatedButton(
-              child: Text('belajarflutter.com'),
-              onPressed: () {
-                print('menggunakan onPressed');
-              },
-              onLongPress: () {
-                print('Menggunakan Longpress klik yang lama button');
-              },
-            ),
+            )
           ],
         ),
       ),
     );
-
   }
 }
